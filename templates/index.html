@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <title>Sitio templates from html</title>
-    <h1>Welcome to mi html template</h1>
-    {%if name%}
-    <p>Hola {{name}}</p>
-    {%else %}
-    <p>que tal desconocido</p>
-    {%endif%}
-    <h2>Lista de amigos</h2>
-    <ul>
-      {% friend in friends }
-      <li>{{friend}}</li>
-      {%endfor%}
-    </ul>
+{% extends "base.html" %} {% block content %} Pagina de inicio {% endblock %} {%
+block content %}
+<title>Sitio templates from html</title>
+<h1>Welcome to mi html template</h1>
+{% if name %}
+<p>Hola {{ name }}</p>
+{% else %}
+<p>que tal desconocido</p>
+{% endif %}
+<h2>Lista de amigos</h2>
+<ul>
+  {% for friend in friends %}
+  <li>{{ friend }}</li>
+  {% endfor %}
+</ul>
 
-    {%endif%}
-  </body>
-</html>
+{% endblock %}
