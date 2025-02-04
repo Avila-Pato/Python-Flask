@@ -1,11 +1,14 @@
-from flask import Flask  # type: ignore
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 @app.route("/index")
+@app.route("/")
 def index():
-    return "<p>Pagina de inicio</p>"
+    name = "pato"
+    friends = ["pato", "pepe", "pepa", "pepito"]
+    return render_template("index.html", name=name, friends=friends)
 
 
 @app.route("/hello")
