@@ -18,3 +18,11 @@ def hello_world(name=None, age=None):
         return f"<p>Hello, {name}!</p>"
     elif name == None:
         return f"<p>Hello, {age}!</p>"
+
+
+from markupsafe import escape
+
+
+@app.route("/code/<path:code>")
+def code(code):
+    return f"<p>{escape(code)}</p>"
